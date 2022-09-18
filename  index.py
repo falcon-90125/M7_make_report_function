@@ -47,17 +47,12 @@ for i in number_of_browser_visits.keys(): # Проходим по ключам �
     letter_counter = collections.Counter(number_of_browser_visits[i]) # Считаем кол-во вхождений по каждому месяцу
     browser_data[i] = dict(collections.OrderedDict(sorted(letter_counter.items()))) # Сортируем по возрастанию и добавляем в словарь данных
 
-total_visits_month = {}
+month_list = (excel_data.iloc[:, 1]).tolist()
+month_list_counter = collections.Counter(month_list)  # Считаем кол-во вхождений по каждому месяцу
+month_list_counter = dict(collections.OrderedDict(sorted(month_list_counter.items())))  # Сортируем по возрастанию и добавляем в словарь данных
 
-print(type(browser_data.values()))
-print(number_of_browser_visits.keys())
+print(month_list_counter)
 
-# for e in browser_data.values():
-#     for en in range(len(e)):
-#         total_visits_month[en] = e[en] # + total_visits_month[e]
-# print(total_visits_month)
-print('===============================')
-print(len(browser_data['Яндекс: мобильное приложение']))
 #
 #     # Открываем файл шаблона отчета report_template.xlsx
 #     wb = load_workbook(filename=report_template_file_name, data_only=True)
