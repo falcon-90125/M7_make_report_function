@@ -24,7 +24,7 @@ def get_password(object_list, login):
 
 # Читаем файл эксель и результат передаем в переменную excel_data
 # Переменная excel_data имеет тип <class 'pandas.core.frame.DataFrame'>
-excel_data = pandas.read_excel('data.xlsx', sheet_name='users', engine='openpyxl')
+excel_data = pandas.read_excel('z_data.xlsx', sheet_name='users', engine='openpyxl')
 
 # Преобразуем переменную excel_data в словарь с помощью метода to_dict()
 # Результат передаем в переменную excel_data_dict
@@ -42,7 +42,7 @@ password = get_password(excel_data_dict, user_name)
 
 if password and user_password == password:
     # Если имя пользователя и пароль совпадают - выдаем данные о продажах
-    sales_data = pandas.read_excel('data.xlsx', sheet_name='sales', engine='openpyxl')
+    sales_data = pandas.read_excel('z_data.xlsx', sheet_name='sales', engine='openpyxl')
     print('Вам доступны данные о продажах:')
     print(sales_data)
 else:
